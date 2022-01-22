@@ -26,9 +26,12 @@ pipeline {
 
         stage('Code Checkout') {
             steps {
-               sh """
-                echo "code checkout"
-                """
+               checkout([$class: 'GitSCM', 
+        branches: [[name: '*/main']], 
+        doGenerateSubmoduleConfigurations: false, 
+        extensions: [], 
+        submoduleCfg: [], 
+        userRemoteConfigs: [[url: ' https://github.com/fadyElmanahry/GNSTOD.git']]])
             }
         }
 
