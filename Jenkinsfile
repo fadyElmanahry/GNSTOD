@@ -26,7 +26,9 @@ pipeline {
 
         stage('Code Checkout') {
             steps {
-              
+               sh """
+                echo "code checkout"
+                """
             }
         }
 
