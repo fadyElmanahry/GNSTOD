@@ -16,42 +16,43 @@ pipeline {
     stages {
         
 	   stage('Nuget Restore') {
-	 
+	  steps {
 			bat label: 'Nuget Restore', 
 			script: '''
 			  dotnet restore "TestJenkins.sln"
 			  echo "Nuget Done Starting Msbuild *************"
 			''' 
-
+}
 		}
 
 		stage('Build') {
-
-			script {
-				  script: '''
-			  dotnet build -c Release /p:Version=${BUILD_NUMBER}
-			dotnet publish -c Release --no-build
+			steps {
+				script {
+				script: '''
+					dotnet build -c Release /p:Version=${BUILD_NUMBER}
+					dotnet publish -c Release --no-build
 
 				  '''
+					}
 					}
 	  
 		}
 
 		stage('UnitTest') {
-
+		steps {
 			script {
 			  bat label: 'Unit Test using Dotnet CLI',
 			script: '''
 			
 			'''
+				}
 			}
-
 		}
 	 
 		stage('compress') {
-	 
-		  zip zipFile: 'TestJenkins.zip', archive: false, dir: 'C:\\Users\\Access\\source\\repos\\TestJenkins\\TestJenkins\\bin\\Debug\\net5.0\\'
-
+		steps {
+				zip zipFile: 'TestJenkins.zip', archive: false, dir: 'C:\\Users\\Access\\source\\repos\\TestJenkins\\TestJenkins\\bin\\Debug\\net5.0\\'
+			}
 
 		}
 
