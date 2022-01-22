@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Access\\source\\repos\\TestJenkins\\TestJenkins\\TestJenkins.csproj": {}
+    "C:\\Users\\Access\\AppData\\Local\\Jenkins\\.jenkins\\workspace\\mobilydeploy\\TestJenkins\\TestJenkins.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Access\\source\\repos\\TestJenkins\\TestJenkins\\TestJenkins.csproj": {
+    "C:\\Users\\Access\\AppData\\Local\\Jenkins\\.jenkins\\workspace\\mobilydeploy\\TestJenkins\\TestJenkins.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Access\\source\\repos\\TestJenkins\\TestJenkins\\TestJenkins.csproj",
+        "projectUniqueName": "C:\\Users\\Access\\AppData\\Local\\Jenkins\\.jenkins\\workspace\\mobilydeploy\\TestJenkins\\TestJenkins.csproj",
         "projectName": "TestJenkins",
-        "projectPath": "C:\\Users\\Access\\source\\repos\\TestJenkins\\TestJenkins\\TestJenkins.csproj",
+        "projectPath": "C:\\Users\\Access\\AppData\\Local\\Jenkins\\.jenkins\\workspace\\mobilydeploy\\TestJenkins\\TestJenkins.csproj",
         "packagesPath": "C:\\Users\\Access\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Access\\source\\repos\\TestJenkins\\TestJenkins\\obj\\",
+        "outputPath": "C:\\Users\\Access\\AppData\\Local\\Jenkins\\.jenkins\\workspace\\mobilydeploy\\TestJenkins\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

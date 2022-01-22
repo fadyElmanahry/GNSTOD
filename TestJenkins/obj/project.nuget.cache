@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "uIKBkXIUvSah6rOZCs344rFp4RYWaoQyQJDnKBXJxeqnIPUI9FJdYSNyk+qXg/wse/SbEv6VXRVKblQoBzoHUw==",
+  "dgSpecHash": "xUA+7IZVJ6UXnVTYbJyYT0koTaU5zqbK7lRZhCQ6gWcA90jgMO6JnlRSVsXZo0SOHznxGKut4cONNmkFgLBDNw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Access\\source\\repos\\TestJenkins\\TestJenkins\\TestJenkins.csproj",
+  "projectFilePath": "C:\\Users\\Access\\AppData\\Local\\Jenkins\\.jenkins\\workspace\\mobilydeploy\\TestJenkins\\TestJenkins.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Access\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
     "C:\\Users\\Access\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
