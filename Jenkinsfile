@@ -2,7 +2,7 @@ pipeline {
 
     agent {
         node {
-            label 'master'
+            label 'main'
         }
     }
 
@@ -14,77 +14,56 @@ pipeline {
     }
 
     stages {
-    stage('Clean Workspace'){
-    
-        cleanWs()
-    
-    }
-    
-    stage('Checkout'){
-
-        checkout([$class: 'GitSCM', 
-        branches: [[name: '*/main']], 
-        doGenerateSubmoduleConfigurations: false, 
-        extensions: [], 
-        submoduleCfg: [], 
-        userRemoteConfigs: [[url: ' https://github.com/fadyElmanahry/GNSTOD.git']]])
-
-   
-    }
-    
-    stage('Nuget Restore') {
- 
-        bat label: 'Nuget Restore', 
-        script: '''
-          dotnet restore "TestJenkins.sln"
-          echo "Nuget Done Starting Msbuild *************"
-        ''' 
-
-    }
-
-    stage('Build') {
-
-        script {
-              script: '''
-          dotnet build -c Release /p:Version=${BUILD_NUMBER}
-        dotnet publish -c Release --no-build
-
-              '''
-                }
-  
-    }
-
-    stage('UnitTest') {
-
-        script {
-          bat label: 'Unit Test using Dotnet CLI',
-        script: '''
         
-        '''
+        stage('Cleanup Workspace') {
+            steps {
+                cleanWs()
+                sh """
+                echo "Cleaned Up Workspace For Project"
+                """
+            }
         }
 
-    }
- 
-    stage('compress') {
- 
-      zip zipFile: 'TestJenkins.zip', archive: false, dir: 'C:\\Users\\Access\\source\\repos\\TestJenkins\\TestJenkins\\bin\\Debug\\net5.0\\'
-
-
-    }
-
-  
-    stage('Deploy') 
-	{
-		when {
-                branch 'develop'
+        stage('Code Checkout') {
+            steps {
+                checkout([
+                    $class: 'GitSCM', 
+                    branches: [[name: '*/main']], 
+                    userRemoteConfigs: [[url: 'https://github.com/spring-projects/spring-petclinic.git']]
+                ])
             }
-       steps {
-        bat label: 'MsDeploy',
-        script: ''' 
-          "C:\\Program Files (x86)\\IIS\\Microsoft Web Deploy V3\\msdeploy.exe" -verb:sync -source:package="C:\\Users\\Access\\AppData\\Local\\Jenkins\\.jenkins\\workspace\\mobilydeploy\\TestJenkins.zip" -dest:contentPath='TestJenkins'
-                 '''
-			}
-    }
+        }
+
+        stage(' Unit Testing') {
+            steps {
+                sh """
+                echo "Running Unit Tests"
+                """
+            }
+        }
+
+        stage('Code Analysis') {
+            steps {
+                sh """
+                echo "Running Code Analysis"
+                """
+            }
+        }
+
+        stage('Build Deploy Code') {
+            when {
+                branch 'main'
+            }
+            steps {
+                sh """
+                echo "Building Artifact"
+                """
+
+                sh """
+                echo "Deploying Code"
+                """
+            }
+        }
+
+    }   
 }
-
-
