@@ -51,7 +51,7 @@ pipeline {
 	 
 		stage('compress') {
 		steps {
-				zip zipFile: 'TestJenkins.zip', archive: false, dir: 'C:\\Users\\Access\\source\\repos\\TestJenkins\\TestJenkins\\bin\\Debug\\net5.0\\'
+				zip zipFile: 'TestJenkins.zip', archive: false, dir: 'C:\\Users\\Access\\AppData\\Local\\Jenkins\\.jenkins\\workspace\\ModilyMultiBranch_main\\TestJenkins\\bin\\Release\\net5.0\\'
 			}
 
 		}
@@ -65,7 +65,7 @@ pipeline {
 		   steps {
 			bat label: 'MsDeploy',
 			script: ''' 
-			  "C:\\Program Files (x86)\\IIS\\Microsoft Web Deploy V3\\msdeploy.exe" -verb:sync -source:package="C:\\Users\\Access\\AppData\\Local\\Jenkins\\.jenkins\\workspace\\mobilydeploy\\TestJenkins.zip" -dest:contentPath='TestJenkins'
+			  "C:\\Program Files (x86)\\IIS\\Microsoft Web Deploy V3\\msdeploy.exe" -verb:sync -source:package="C:\\Users\\Access\\AppData\\Local\\Jenkins\\.jenkins\\workspace\\ModilyMultiBranch_main\\TestJenkins.zip" -dest:contentPath='TestJenkins'
 					 '''
 				}
 		}
