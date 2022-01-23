@@ -27,7 +27,7 @@ pipeline {
 
 		stage('Build') {
 			steps {
-
+			bat label: 'build', 
 				script: '''
 					dotnet build -c Release /p:Version=${BUILD_NUMBER}
 					dotnet publish -c Release --no-build
