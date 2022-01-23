@@ -27,25 +27,25 @@ pipeline {
 
 		stage('Build') {
 			steps {
-				script {
+
 				script: '''
 					dotnet build -c Release /p:Version=${BUILD_NUMBER}
 					dotnet publish -c Release --no-build
 
 				  '''
-					}
+
 					}
 	  
 		}
 
 		stage('UnitTest') {
 		steps {
-			script {
+
 			  bat label: 'Unit Test using Dotnet CLI',
 			script: '''
 			
 			'''
-				}
+
 			}
 		}
 	 
