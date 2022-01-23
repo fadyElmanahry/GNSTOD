@@ -29,7 +29,7 @@ pipeline {
 			steps {
 			bat label: 'build', 
 				script: '''
-					dotnet build -c Release /p:Version=${BUILD_NUMBER}
+					dotnet build -c Release /p:Version=1.0.0.0
 					dotnet publish -c Release --no-build
 
 				  '''
