@@ -51,6 +51,7 @@ pipeline {
 	 
 		stage('compress') {
 		steps {
+			bat '''del /f C:\\Users\\Access\\AppData\\Local\\Jenkins\\.jenkins\\workspace\\ModilyMultiBranch_main\\TestJenkins.zip'''
 				zip zipFile: 'TestJenkins.zip', archive: false, dir: 'C:\\Users\\Access\\AppData\\Local\\Jenkins\\.jenkins\\workspace\\ModilyMultiBranch_main\\TestJenkins\\bin\\Release\\net5.0\\'
 			}
 
